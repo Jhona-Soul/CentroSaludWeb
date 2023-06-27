@@ -1,7 +1,7 @@
 export const Footer = () => {
     return (
         <div>
-            <p>@Jhonatan Fulguera</p>
+            <p>© Jhonatan Fulguera</p>
         </div>
     )
 }

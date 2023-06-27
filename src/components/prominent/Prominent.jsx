@@ -1,6 +1,7 @@
-export const DoctorCard = ()=>{
+export const Prominent = ()=>{
     return (
         <>
+            
         </>
     )
 } 
