@@ -26,8 +26,8 @@ export const NavBar = ()=>{
         <nav >
                 <div id="title">
                     <Link  to="/" > 
-                        <h1 >Clinica</h1>
-                        <h1 ><b>DH</b></h1>
+                        <h1 >Centro medico</h1>
+                        <h1 ><b>Higía</b> </h1>
                     </Link>
                 </div>
                 <ul >
