@@ -1,0 +1,8 @@
+.button_inactive {
+    background-color: red;
+    color: white;
+}
+.button_active {
+    background-color: green;
+    color: black;
+}

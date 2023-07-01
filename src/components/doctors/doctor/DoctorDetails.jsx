@@ -5,13 +5,15 @@ import { Link, useParams } from "react-router-dom"
 export default function DoctorDetails() {
     const [doctor, setDoctor] = useState(null)
     const { doctorId } = useParams();
-
-    console.log(doctorId);
     const URL_API_USER = `https://jsonplaceholder.typicode.com/users/${doctorId}`
 
     async function ApiUser () {
         try {
-            const response = await fetch(URL_API_USER)
+            const response = await fetch(URL_API_USER);
+            if (!response.ok) {
+                throw new Error("Error Http" + response.status);
+            }
+
             setDoctor(await response.json());
         } catch (error) {
             console.log("Failed to", error);
@@ -20,7 +22,6 @@ export default function DoctorDetails() {
     useEffect(() => {
         ApiUser();
     },[doctorId])
-
     console.log(doctor);
 
   return (
