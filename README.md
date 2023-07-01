@@ -56,12 +56,12 @@ un botón para cambiar el theme) y footer.
 
  _Clonar repo Git_
 
-    ```git clone "https://github.com/JhonatanCremona/FronEndBalanzaAntonativa.git"```
+    git clone "https://github.com/JhonatanCremona/FronEndBalanzaAntonativa.git"
 _cd FronEndBalanzaAntonativa_
 
 _Instala las Dependecias con npm_
 
-    ```npm install```
+    npm install
 _Ejecutar proyecto_
 
-    ```npm run dev```
+    npm run dev
