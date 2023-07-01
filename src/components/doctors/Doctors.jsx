@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom"
 
 import DoctorDetails from './doctor/DoctorDetails'
 import { ListDoctors } from './listDoctors/ListDoctors'
-import { ProminentProvider } from "../context/ProminentContext"
 
 export default function Doctors() {
   return (

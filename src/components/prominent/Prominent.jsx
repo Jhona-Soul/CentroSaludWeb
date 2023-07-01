@@ -24,7 +24,7 @@ function ProminentDetail (doctor) {
 
 
 export const Prominent = ()=>{
-    const { addToProminent, prominent, clearProminent } = useContext(DoctorsContext)
+    const {  prominent, clearProminent } = useContext(DoctorsContext)
     return (
         <>
           <h2>Lista de Favoritos ✨</h2>

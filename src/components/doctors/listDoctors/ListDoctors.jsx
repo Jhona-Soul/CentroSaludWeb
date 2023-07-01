@@ -9,11 +9,10 @@ import { Link } from "react-router-dom";
 
 export const ListDoctors = ()=>{
     const { doctors, addToProminent,removeFromProminent, prominent } = useContext(DoctorsContext);
-
-    console.log(prominent);
-
-    const checkDoctorsInProminent = doctors => {
-        return prominent.some(item => item.id === doctors.id);
+    const checkDoctorsInProminent = doctor => {
+        console.table(prominent);
+        const result = prominent.some(item => item.id === doctor.id)
+        return result;
     }
     
     return (
@@ -24,7 +23,6 @@ export const ListDoctors = ()=>{
                     const isDoctorsInProminent = checkDoctorsInProminent(doctor);
 
                     return (
-
                         <li key={doctor.id}>
                             <div>
                                 <h2><strong>Nombre: </strong>{doctor.name}</h2>    

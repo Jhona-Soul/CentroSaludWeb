@@ -1,5 +1,8 @@
+export const ProminentInitialState = JSON.parse(window.localStorage.getItem("prominent")) || [];
+export const updateLocalStorage = state => {
+    window.localStorage.setItem("prominent", JSON.stringify(state));
+};
 
-export const ProminentinitialState = JSON.parse(window.localStorage.getItem("prominent")) || [];
 export const ProminentReducer = (state, action) => {
     const { type: actionType, payload: actionPayload } = action;
     switch (actionType) {
@@ -9,22 +12,27 @@ export const ProminentReducer = (state, action) => {
         
             if (doctorsInProminentIndex >= 0) {
                 const newState = structuredClone(state)
-                newState[doctorsInProminentIndex]
+                updateLocalStorage(newState)
                 return newState;
             }
-            return [ 
+            const newState =  [ 
                 ...state, 
                 {
                 ...actionPayload
                 }
             ]
+            updateLocalStorage(newState);
+            return newState;
         }
         case "REMOVE_TO_PROMINENT":{
             const { id } = actionPayload;
-            return( prevState => prevState.filter(item => item.id !== id));
+            const newState = state.filter(item => item.id !== id);
+            updateLocalStorage(newState)
+            return newState;
         }
         case "CLEAR_PROMINENT": {
-            return ProminentinitialState;
+            updateLocalStorage(ProminentInitialState)
+            return ProminentInitialState;
         }
         default:
             break;

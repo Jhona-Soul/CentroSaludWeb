@@ -1,23 +1,23 @@
 import { createContext, useState, useEffect, useReducer } from "react";
-import { ProminentinitialState, ProminentReducer } from "../reducer/ReducerProminent";
+import { ProminentInitialState, ProminentReducer } from "../reducer/ReducerProminent";
 
 export const DoctorsContext = createContext();
 
 function useProminentReducer () {
-    const [state, dispatch] = useReducer(ProminentReducer, ProminentinitialState)
+    const [state, dispatch] = useReducer(ProminentReducer, ProminentInitialState)
 
     const addToProminent = doctors  => dispatch({
         type: "ADD_TO_PROMINENT",
         payload: doctors
     })
     const removeFromProminent = doctors => dispatch({
-        type: "REMOVE_FROM_PROMINENT",
+        type: "REMOVE_TO_PROMINENT",
         payload: doctors
     })
     const clearProminent = () => dispatch({
         type: "CLEAR_PROMINENT",
     })
-    
+
     return { state, addToProminent, removeFromProminent, clearProminent };
 }
 
@@ -25,7 +25,6 @@ export const ContextProvaider = ({ children }) => {
     const [doctors, setDoctors ] = useState([]);
     const { state, addToProminent, removeFromProminent, clearProminent} = useProminentReducer();
     const URL_API = "https://jsonplaceholder.typicode.com/users"
-
 
     async function ApiUsersList () {
         try {
@@ -39,9 +38,6 @@ export const ContextProvaider = ({ children }) => {
     useEffect(() => {
         ApiUsersList();
     }, [])
-
-
-
 
     return (
         <DoctorsContext.Provider value={{ doctors,
