@@ -10,9 +10,7 @@ import { Link } from "react-router-dom";
 export const ListDoctors = ()=>{
     const { doctors, addToProminent,removeFromProminent, prominent } = useContext(DoctorsContext);
     const checkDoctorsInProminent = doctor => {
-        console.table(prominent);
-        const result = prominent.some(item => item.id === doctor.id)
-        return result;
+        return prominent.some(item => item.id === doctor.id)
     }
     
     return (
